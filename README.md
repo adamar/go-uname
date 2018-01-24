@@ -5,9 +5,13 @@
 Get name and information about the current kernel
 
 
+## GoDoc
+
+https://godoc.org/github.com/adamar/go-uname
 
 
 
+## Underlying Linux Lib
 
 The utsname struct is defined in <sys/utsname.h>
 
