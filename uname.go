@@ -25,7 +25,7 @@ func ctos(input *[65]int8) string {
         return string(str[0:length])
 }
 
-func Uname() *UtsName {
+func Uname() UtsName {
         utsname := syscall.Utsname{}
         _ = syscall.Uname(&utsname)
 	return UtsName{
