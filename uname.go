@@ -2,7 +2,6 @@ package uname
 
 import (
         "syscall"
-	"fmt"
 )
 
 type UtsName struct {
@@ -26,15 +25,15 @@ func ctos(input *[65]int8) string {
         return string(str[0:length])
 }
 
-func Uname() {
+func Uname() *UtsName {
         utsname := syscall.Utsname{}
         _ = syscall.Uname(&utsname)
 	return UtsName{
-		Sysname:	Ctos(&utsname.Sysname),
-		Nodename:	Ctos(&utsname.Nodename),
-		Release:	Ctos(&utsname.Release),
-		Version:	Ctos(&utsname.Version),
-		Machine:	Ctos(&utsname.Machine),
-		Domainname:	Ctos(&utsname.Domainname),
+		Sysname:	ctos(&utsname.Sysname),
+		Nodename:	ctos(&utsname.Nodename),
+		Release:	ctos(&utsname.Release),
+		Version:	ctos(&utsname.Version),
+		Machine:	ctos(&utsname.Machine),
+		Domainname:	ctos(&utsname.Domainname),
 	}
 }
